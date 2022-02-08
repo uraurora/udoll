@@ -41,6 +41,18 @@ public class Parallel<E> extends BranchNode<E> {
         this(Lists.<INode<E>>newArrayList());
     }
 
+    public Parallel(INode<E> node) {
+        this(Lists.<INode<E>>newArrayList(node));
+    }
+
+    public Parallel(INode<E> node1, INode<E> node2) {
+        this(Lists.<INode<E>>newArrayList(node1, node2));
+    }
+
+    public Parallel(INode<E> node1, INode<E> node2, INode<E> node3) {
+        this(Lists.<INode<E>>newArrayList(node1, node2, node3));
+    }
+
     /**
      * Creates a parallel node with sequence policy, resume orchestrator and the given children
      *

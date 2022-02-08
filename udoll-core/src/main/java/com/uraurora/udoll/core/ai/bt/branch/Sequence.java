@@ -15,21 +15,27 @@ import java.util.List;
  */
 public class Sequence<E> extends SingleRunningChildBranch<E> {
 
-    /** Creates a {@code Sequence} branch with no children. */
-    public Sequence () {
+    /**
+     * Creates a {@code Sequence} branch with no children.
+     */
+    public Sequence() {
         super();
     }
 
-    /** Creates a {@code Sequence} branch with the given children.
+    /**
+     * Creates a {@code Sequence} branch with the given children.
      *
-     * @param nodes the children of this task */
+     * @param nodes the children of this task
+     */
     public Sequence(List<INode<E>> nodes) {
         super(nodes);
     }
 
-    /** Creates a {@code Sequence} branch with the given children.
+    /**
+     * Creates a {@code Sequence} branch with the given children.
      *
-     * @param nodes the children of this task */
+     * @param nodes the children of this task
+     */
     @SafeVarargs
     public Sequence(INode<E>... nodes) {
         super(Lists.newArrayList(nodes));
@@ -37,22 +43,26 @@ public class Sequence<E> extends SingleRunningChildBranch<E> {
 
     /**
      * 序列节点，只有当所有节点都成功运行，这个节点才返回成功
+     *
      * @param context 成功的子节点
      */
     @Override
-    public void childSuccess (NodeContext<E> context) {
+    public void childSuccess(NodeContext<E> context) {
         super.childSuccess(context);
         if (++currentChildIndex < children.size()) {
-            run(); // Run next child
+            // Run next child
+            run();
         } else {
-            success(); // All children processed, return success status
+            // All children processed, return success status
+            success();
         }
     }
 
     @Override
-    public void childFail (NodeContext<E> context) {
+    public void childFail(NodeContext<E> context) {
         super.childFail(context);
-        fail(); // Return failure status when a child says it failed
+        // Return failure status when a child says it failed
+        fail();
     }
 
 }
