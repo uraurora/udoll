@@ -77,7 +77,7 @@ public class BehaviourTree<E> extends AbstractNode<E> {
      * @return the index where the root task has been added (always 0).
      * @throws IllegalStateException if the root task is already set. */
     @Override
-    protected int addChildToTask (INode<E> child) {
+    protected int internalAddChild(INode<E> child) {
         if (this.root != null) {
             throw new IllegalStateException("A behavior tree cannot have more than one root task");
         }
@@ -200,7 +200,7 @@ public class BehaviourTree<E> extends AbstractNode<E> {
 
 
         @Override
-        protected int addChildToTask (INode<E> child) {
+        protected int internalAddChild(INode<E> child) {
             return 0;
         }
 

@@ -18,7 +18,7 @@ public class BehaviourTreeBuilder<E> {
 
     private BehaviourTreeBuilder(){}
 
-    public BehaviourTreeBuilder<E> builder(){
+    public static <E> BehaviourTreeBuilder<E> builder(){
         return new BehaviourTreeBuilder<>();
     }
 

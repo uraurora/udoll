@@ -33,7 +33,7 @@ public abstract class AbstractNode<E> implements INode<E> {
      * @throws IllegalStateException 如果添加不成功的原因 */
     @Override
     public final int addChild(INode<E> child) {
-        int index = addChildToTask(child);
+        int index = internalAddChild(child);
         if (tree != null && tree.listeners != null) {
             tree.notifyChildAdded(this, index);
         }
@@ -45,7 +45,7 @@ public abstract class AbstractNode<E> implements INode<E> {
      * @param child 需要添加的孩子节点
      * @return 这个子节点添加的索引
      * @throws IllegalStateException 如果添加不成功的原因 */
-    protected abstract int addChildToTask(INode<E> child);
+    protected abstract int internalAddChild(INode<E> child);
 
     /**
      *  返回该节点的子节点的个数

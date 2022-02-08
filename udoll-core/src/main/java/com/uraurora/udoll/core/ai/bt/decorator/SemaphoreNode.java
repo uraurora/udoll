@@ -20,12 +20,12 @@ import java.util.concurrent.TimeUnit;
  * <p>
  *     比如，作简单的限流作用，将某个方法调用作为子节点，限制调用该方法的数量；又比如，连接池有20个连接，限制最多20个连接接入
  */
-// TODO:多线程下有问题
 public class SemaphoreNode<E> extends DecoratorNode<E> {
-    final static Object lock = new Object();
+
+    private final Object lock = new Object();
 
     @NodeAttribute(name = "semaphore")
-    private final transient Semaphore semaphore;
+    private transient Semaphore semaphore;
 
     public SemaphoreNode(int resource) {
         this.semaphore = new Semaphore(resource);
@@ -42,6 +42,7 @@ public class SemaphoreNode<E> extends DecoratorNode<E> {
 
     @Override
     public void run() {
+        // TODO:多线程下有问题
         synchronized (lock){
             if(semaphore.availablePermits()>0){
                 super.run();
@@ -88,11 +89,13 @@ public class SemaphoreNode<E> extends DecoratorNode<E> {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        Semaphore s = new Semaphore(1);
-        System.out.println(s.availablePermits());
-        System.out.println(s.drainPermits());
-        s.release();
-        System.out.println(s.availablePermits());
+    @Override
+    public void resetTask() {
+        super.resetTask();
+        semaphore = null;
+    }
+
+    public void setSemaphore(Semaphore semaphore) {
+        this.semaphore = semaphore;
     }
 }

@@ -11,7 +11,8 @@
     <modules>
         <module>udoll-core</module>
         <module>udoll-common</module>
-        <module>udoll-event</module>
+        <module>udoll-interaction</module>
+        <module>udoll-extension</module>
     </modules>
 
 

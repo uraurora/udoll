@@ -31,7 +31,7 @@ public abstract class BranchNode<E> extends AbstractNode<E> {
     }
 
     @Override
-    protected int addChildToTask (INode<E> child) {
+    protected int internalAddChild(INode<E> child) {
         children.add(child);
         return children.size() - 1;
     }
@@ -64,4 +64,7 @@ public abstract class BranchNode<E> extends AbstractNode<E> {
         super.reset();
     }
 
+    public List<INode<E>> getChildren() {
+        return children;
+    }
 }

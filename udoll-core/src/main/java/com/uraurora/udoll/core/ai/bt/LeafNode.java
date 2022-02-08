@@ -45,7 +45,7 @@ public abstract class LeafNode<E> extends AbstractNode<E> {
 
     /** 调用以下方法总是会抛出异常 {@code IllegalStateException} ，因为叶节点没有子节点 */
     @Override
-    protected int addChildToTask (INode<E> child) {
+    protected int internalAddChild(INode<E> child) {
         throw new IllegalStateException("A leaf task cannot have any children");
     }
 

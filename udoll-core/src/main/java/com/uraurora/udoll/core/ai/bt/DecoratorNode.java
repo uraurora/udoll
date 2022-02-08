@@ -26,7 +26,7 @@ public abstract class DecoratorNode<E> extends AbstractNode<E> {
     }
 
     @Override
-    protected int addChildToTask (INode<E> child) {
+    protected int internalAddChild(INode<E> child) {
         if (this.child != null) {
             throw new IllegalStateException("A decorator task cannot have more than one child");
         }
