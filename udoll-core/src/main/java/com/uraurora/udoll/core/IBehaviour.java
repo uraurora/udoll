@@ -3,8 +3,8 @@ package com.uraurora.udoll.core;
 /**
  * @author gaoxiaodong
  */
-public interface IProperty {
+public interface IBehaviour<E> {
 
-    
+    E provide();
 
 }

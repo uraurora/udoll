@@ -2,7 +2,7 @@ package com.uraurora.udoll.core.ai.bt.leaf.condition;
 
 import com.uraurora.udoll.core.ai.bt.BTStatus;
 import com.uraurora.udoll.core.ai.bt.LeafNode;
-import com.uraurora.udoll.core.ai.bt.util.Randoms;
+import com.uraurora.udoll.core.utils.Randoms;
 
 /**
  * @author : gaoxiaodong04

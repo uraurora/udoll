@@ -1,4 +1,4 @@
-package com.uraurora.udoll.core.ai.bt.util;
+package com.uraurora.udoll.core.utils;
 
 import java.util.concurrent.ThreadLocalRandom;
 

@@ -3,8 +3,5 @@ package com.uraurora.udoll.core;
 /**
  * @author gaoxiaodong
  */
-public interface IProperty {
-
-    
-
+public interface ISpeakable extends IBehaviour<ISpeech>{
 }

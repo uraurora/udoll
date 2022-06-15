@@ -47,4 +47,8 @@ public class Filter<E> extends DecoratorNode<E> {
             fail();
         }
     }
+
+    public Function<E, Boolean> getCondition() {
+        return condition;
+    }
 }

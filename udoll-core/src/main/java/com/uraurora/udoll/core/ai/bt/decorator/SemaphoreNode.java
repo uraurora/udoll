@@ -4,7 +4,7 @@ import com.uraurora.udoll.core.ai.bt.BTStatus;
 import com.uraurora.udoll.core.ai.bt.DecoratorNode;
 import com.uraurora.udoll.core.ai.bt.INode;
 import com.uraurora.udoll.core.ai.bt.annotation.NodeAttribute;
-import com.uraurora.udoll.core.ai.bt.util.Times;
+import com.uraurora.udoll.core.utils.Times;
 import com.uraurora.udoll.core.ai.bt.value.NodeContext;
 
 import java.util.concurrent.Semaphore;
